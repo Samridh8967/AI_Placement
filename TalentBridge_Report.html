@@ -281,7 +281,8 @@
 
   <!-- Top Floating Action Bar -->
   <div class="action-bar">
-    <button class="btn btn-primary" onclick="window.print()">🖨️ Download / Save as PDF</button>
+    <a class="btn btn-primary" href="TalentBridge_Report.pdf" download="TalentBridge_Report.pdf">📥 Download PDF File</a>
+    <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
     <button class="btn" onclick="downloadHTML()">💾 Download HTML</button>
     <button class="btn" onclick="downloadMarkdown()">📄 Download Markdown (.md)</button>
   </div>
@@ -294,9 +295,10 @@
       <div class="inst-tag">Lovely Professional University • CSE276 Academic Report</div>
       <h1 class="project-title">TalentBridge: University Placement Skill-Match Ranking and Interview Readiness System</h1>
       <div class="author-meta">
-        <strong>Author:</strong> Samridhjit Barnwal (Reg. No: 12204561) • B.Tech CSE (AI & ML)<br>
+        <strong>Author:</strong> Samridhjit Barnwal (Reg. No: 12509754, Roll No: 21, Section: K3P25IN) • B.Tech CSE (AI & ML)<br>
         <strong>Course:</strong> CSE276: Artificial Intelligence & Foundations • Academic Session 2026–2027<br>
-        <strong>Problem ID:</strong> LPU-PLACEMENT-01 • School of Computer Science & Engineering
+        <strong>Mentor / Faculty Guide:</strong> Sir Hitesh Kumar • School of Computer Science & Engineering<br>
+        <strong>Problem ID:</strong> LPU-PLACEMENT-01 • Lovely Professional University
       </div>
     </div>
 
@@ -304,11 +306,11 @@
     <h2 class="section-header">1. Preliminaries (Front Matter)</h2>
     
     <div class="card-box">
-      <strong>Declaration & Certification:</strong> I hereby declare that this report embodies original engineering and analytical work carried out for course CSE276. All literature, mathematical formulations, and software libraries have been duly credited.<br>
-      <em>Approved by:</em> Course Mentor & Head of Department, School of Computer Science & Engineering, Lovely Professional University.
+      <strong>Declaration & Certification:</strong> I, <strong>Samridhjit Barnwal (Reg. No: 12509754, Roll No: 21, Section: K3P25IN)</strong>, hereby declare that this report embodies original engineering and analytical work carried out for course CSE276 under the supervision of <strong>Sir Hitesh Kumar</strong>. All literature, mathematical formulations, and software libraries have been duly credited.<br>
+      <em>Approved by:</em> <strong>Sir Hitesh Kumar</strong> (Course Mentor) & Head of Department, School of Computer Science & Engineering, Lovely Professional University.
     </div>
 
-    <p><strong>Acknowledgements:</strong> Gratitude is expressed to the faculty mentor of CSE276 for guidance on explainability and empirical model evaluation, and to the LPU Career Services Division for real-world domain insights into campus placement bottlenecks.</p>
+    <p><strong>Acknowledgements:</strong> I express my sincere gratitude to my course instructor and mentor, <strong>Sir Hitesh Kumar</strong>, for his invaluable guidance, technical reviews, and encouragement throughout the design and evaluation of TalentBridge. I also thank the LPU Career Services Division for domain insights into campus placement bottlenecks.</p>
 
     <div class="card-box" style="border-left: 4px solid var(--primary);">
       <strong>Abstract / Executive Summary:</strong> Campus recruitment drives frequently rely on rigid keyword matching and arbitrary CGPA cutoffs. This introduces the <strong>"Keyword Trap"</strong> (rejecting qualified students for using synonymous terminology such as "NLP" instead of "Natural Language Processing") and the <strong>"Rejection Void"</strong> (generic rejections with zero diagnostic feedback). <strong>TalentBridge</strong> resolves these issues through a multi-stage AI pipeline: (1) domain acronym canonicalization, (2) dense semantic matching using Sentence Transformers (<code>all-MiniLM-L6-v2</code>), (3) supervised interview readiness classification over a 5-dimensional feature space, and (4) prescriptive gap remediation offering targeted courses and projects. On a held-out test set ($N=29$), the supervised Random Forest model achieved <strong>93.10% accuracy</strong> and <strong>100% recall</strong> (zero false negatives), ensuring qualified students are never mistakenly screened out.

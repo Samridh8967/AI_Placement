@@ -15,8 +15,6 @@ Key Academic Principles:
 import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ["OMP_NUM_THREADS"] = "1"
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 from typing import Any, Dict, List, Optional, Tuple
 import numpy as np

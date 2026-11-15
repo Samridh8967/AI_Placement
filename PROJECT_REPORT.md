@@ -1,8 +1,9 @@
 # TalentBridge: University Placement Skill-Match Ranking and Interview Readiness System
 ## Condensed Engineering & Academic Project Report (3–5 Page Edition)
 
-**Author:** Samridhjit Barnwal (Reg. No: 12204561, B.Tech CSE — AI & ML)  
+**Author:** Samridhjit Barnwal (Reg. No: 12509754, Roll No: 21, Section: K3P25IN, B.Tech CSE — AI & ML)  
 **Course:** CSE276 — Artificial Intelligence & Foundations | **Academic Session:** 2026–2027  
+**Faculty Mentor / Guide:** Sir Hitesh Kumar  
 **Department:** School of Computer Science & Engineering, Lovely Professional University  
 **Problem ID:** LPU-PLACEMENT-01 | **Codebase:** `placement_system/`  
 
@@ -11,11 +12,11 @@
 # 1. PRELIMINARIES (FRONT MATTER)
 
 ### Declaration & Certification
-I, **Samridhjit Barnwal**, hereby declare that this report entitled *"TalentBridge: University Placement Skill-Match Ranking and Interview Readiness System"* embodies original engineering and analytical work completed for CSE276. All third-party libraries, datasets, and literature sources have been duly cited.  
-*Approved by:* **Course Mentor & Head of Department**, School of Computer Science & Engineering, Lovely Professional University.
+I, **Samridhjit Barnwal (Reg. No: 12509754, Roll No: 21, Section: K3P25IN)**, hereby declare that this report entitled *"TalentBridge: University Placement Skill-Match Ranking and Interview Readiness System"* embodies original engineering and analytical work completed for CSE276 under the supervision of **Sir Hitesh Kumar**. All third-party libraries, datasets, and literature sources have been duly cited.  
+*Approved by:* **Sir Hitesh Kumar** (Course Mentor) & Head of Department, School of Computer Science & Engineering, Lovely Professional University.
 
 ### Acknowledgements
-I express my gratitude to my CSE276 course mentor for guidance on explainable AI and evaluation methodologies, and to the LPU Career Services Division for domain insights into campus placement bottlenecks.
+I express my sincere gratitude to my course instructor and mentor, **Sir Hitesh Kumar**, for his continuous guidance, technical reviews, and encouragement throughout the design and evaluation of TalentBridge. I also thank the LPU Career Services Division for domain insights into campus placement bottlenecks.
 
 ### Executive Summary
 Campus recruitment often relies on rigid keyword screening and arbitrary CGPA cutoffs. This creates the **"Keyword Trap"** (rejecting candidates for using synonymous terms like "NLP" instead of "Natural Language Processing") and the **"Rejection Void"** (providing unselected students zero diagnostic feedback). **TalentBridge** resolves this through a multi-stage AI pipeline: (1) domain-specific acronym canonicalization, (2) dense semantic matching using Sentence Transformers (`all-MiniLM-L6-v2`), (3) supervised interview readiness classification across a 5-dimensional feature space, and (4) prescriptive gap remediation that recommends specific courses and capstone projects. On a held-out stratified test set ($N=29$), the supervised Random Forest model achieved **93.10% accuracy** and **100% recall** (zero false negatives), ensuring qualified students are never mistakenly screened out.
