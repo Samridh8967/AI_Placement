@@ -1,0 +1,91 @@
+[
+  {
+    "id": "STU_001",
+    "name": "Aarav Sharma",
+    "email": "aarav.sharma@example.edu",
+    "technical_skills": ["Python", "SQL", "Machine Learning", "Deep Learning", "TensorFlow", "Pandas", "Git"],
+    "coursework": ["Data Structures and Algorithms", "Machine Learning", "Database Management Systems", "Linear Algebra"],
+    "projects": [
+      {
+        "title": "Medical Imaging Disease Classifier",
+        "description": "Built a CNN using TensorFlow to classify chest X-rays with 92% accuracy.",
+        "skills_used": ["Python", "TensorFlow", "Deep Learning"]
+      },
+      {
+        "title": "E-Commerce Customer Churn Analysis",
+        "description": "Analyzed customer transaction history with Pandas and built a Random Forest churn model.",
+        "skills_used": ["Python", "Pandas", "SQL", "Machine Learning"]
+      }
+    ],
+    "internship_experience": "6-month AI Intern at DataCorp developing predictive models.",
+    "experience_months": 6,
+    "preferred_domains": ["Machine Learning", "Artificial Intelligence", "Data Science"],
+    "career_interests": ["Machine Learning Engineer", "Data Scientist"]
+  },
+  {
+    "id": "STU_002",
+    "name": "Priya Patel",
+    "email": "priya.patel@example.edu",
+    "technical_skills": ["Python", "FastAPI", "PostgreSQL", "Docker", "Git", "REST APIs"],
+    "coursework": ["Web Development", "Computer Networks", "Operating Systems", "Cloud Computing"],
+    "projects": [
+      {
+        "title": "Microservices Campus Portal",
+        "description": "Developed RESTful APIs using FastAPI and PostgreSQL containerized with Docker.",
+        "skills_used": ["Python", "FastAPI", "PostgreSQL", "Docker"]
+      }
+    ],
+    "internship_experience": "3-month Backend Developer Intern at WebFlow Solutions.",
+    "experience_months": 3,
+    "preferred_domains": ["Backend Engineering", "Cloud Computing"],
+    "career_interests": ["Backend Developer", "Software Engineer"]
+  },
+  {
+    "id": "STU_003",
+    "name": "Rohan Verma",
+    "email": "rohan.verma@example.edu",
+    "technical_skills": ["Python", "ML", "NLP", "PyTorch", "Hugging Face"],
+    "coursework": ["Natural Language Processing", "Artificial Intelligence", "Probability and Statistics"],
+    "projects": [
+      {
+        "title": "Customer Review Sentiment Analyzer",
+        "description": "Fine-tuned a BERT transformer model using Hugging Face and PyTorch for sentiment analysis.",
+        "skills_used": ["Python", "NLP", "PyTorch", "Hugging Face"]
+      }
+    ],
+    "internship_experience": "",
+    "experience_months": 0,
+    "preferred_domains": ["Natural Language Processing", "AI Research"],
+    "career_interests": ["NLP Engineer", "Junior ML Engineer"]
+  },
+  {
+    "id": "STU_004",
+    "name": "Sneha Kulkarni",
+    "email": "sneha.k@example.edu",
+    "technical_skills": ["Python", "Excel", "SQL", "PowerBI", "Tableau", "Statistics"],
+    "coursework": ["Business Analytics", "Database Systems", "Applied Statistics"],
+    "projects": [
+      {
+        "title": "Hospital Resource Utilization Dashboard",
+        "description": "Created interactive PowerBI dashboards visualizing bed occupancy and wait times.",
+        "skills_used": ["PowerBI", "SQL", "Excel"]
+      }
+    ],
+    "internship_experience": "4-month Business Analyst Intern at HealthAnalytics.",
+    "experience_months": 4,
+    "preferred_domains": ["Data Analytics", "Business Intelligence"],
+    "career_interests": ["Data Analyst", "BI Specialist"]
+  },
+  {
+    "id": "STU_005",
+    "name": "Incomplete Candidate (Edge Case)",
+    "email": "test.candidate@example.edu",
+    "technical_skills": [],
+    "coursework": [],
+    "projects": [],
+    "internship_experience": "",
+    "experience_months": null,
+    "preferred_domains": [],
+    "career_interests": []
+  }
+]

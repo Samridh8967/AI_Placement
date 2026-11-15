@@ -1,0 +1,50 @@
+[
+  {
+    "job_id": "JOB_001",
+    "title": "Junior Machine Learning Engineer",
+    "company": "DeepVision Labs",
+    "domain": "Machine Learning",
+    "description": "Join our AI research team to build, evaluate, and deploy deep learning models for computer vision and multimodal applications.",
+    "required_skills": ["Python", "Machine Learning", "Deep Learning", "TensorFlow"],
+    "preferred_skills": ["PyTorch", "Docker", "Git", "SQL"],
+    "min_experience_months": 3,
+    "required_coursework": ["Machine Learning", "Linear Algebra"],
+    "min_cgpa": 7.0
+  },
+  {
+    "job_id": "JOB_002",
+    "title": "Natural Language Processing Associate",
+    "company": "LexiAI Technologies",
+    "domain": "Natural Language Processing",
+    "description": "Work on state-of-the-art Large Language Models, text summarization pipelines, and conversational AI interfaces.",
+    "required_skills": ["Python", "Natural Language Processing", "PyTorch"],
+    "preferred_skills": ["Hugging Face", "Transformers", "Git"],
+    "min_experience_months": 0,
+    "required_coursework": ["Natural Language Processing", "Artificial Intelligence"],
+    "min_cgpa": 6.5
+  },
+  {
+    "job_id": "JOB_003",
+    "title": "Python Backend Engineer",
+    "company": "CloudScale Systems",
+    "domain": "Backend Engineering",
+    "description": "Design resilient high-throughput REST APIs, database schemas, and microservices for fintech clients.",
+    "required_skills": ["Python", "FastAPI", "SQL", "Docker"],
+    "preferred_skills": ["PostgreSQL", "Redis", "Git", "AWS"],
+    "min_experience_months": 3,
+    "required_coursework": ["Computer Networks", "Database Management Systems"],
+    "min_cgpa": 6.5
+  },
+  {
+    "job_id": "JOB_004",
+    "title": "Junior Data Analyst",
+    "company": "InsightIQ Consulting",
+    "domain": "Data Analytics",
+    "description": "Extract, transform, and analyze enterprise datasets to produce business intelligence reports and dashboards.",
+    "required_skills": ["SQL", "Python", "PowerBI", "Statistics"],
+    "preferred_skills": ["Tableau", "Excel", "Data Storytelling"],
+    "min_experience_months": 0,
+    "required_coursework": ["Database Systems", "Applied Statistics"],
+    "min_cgpa": 6.0
+  }
+]

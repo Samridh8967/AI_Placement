@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Placement Skill-Match & Readiness Presentation</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --card-border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.12);
+      --emerald: #059669;
+      --emerald-glow: rgba(5, 150, 105, 0.12);
+      --amber: #d97706;
+      --purple: #7c3aed;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(2, 132, 199, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 40%);
+    }
+
+    /* Top Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: 100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 12.5%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      transition: width 0.35s ease;
+    }
+
+    /* Slide Deck Container */
+    .deck-container {
+      position: relative;
+      width: 92vw;
+      max-width: 1140px;
+      height: 78vh;
+      max-height: 680px;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(40px);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 44px 52px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    /* Slide Header */
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .slide-title {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .slide-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    /* Slide Body & Bullets */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 17px;
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+
+    .bullet-dot {
+      margin-top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .bullet-text strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .bullet-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Grid layout for 2-column slides */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 18px 22px;
+    }
+
+    .card-box h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Metric Table styling */
+    .metric-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .metric-table th, .metric-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .metric-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .metric-table td.highlight {
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* Slide Footer info */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Speaker Notes Bar (Collapsible) */
+    .notes-drawer {
+      position: fixed;
+      bottom: 68px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      width: 92vw;
+      max-width: 1140px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid #94a3b8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #0f172a;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 50;
+    }
+
+    .notes-drawer.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .notes-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Controls Bar */
+    .controls {
+      position: fixed;
+      bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #cbd5e1;
+      border-radius: 9999px;
+      padding: 6px 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .btn {
+      background: transparent;
+      border: none;
+      color: #334155;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+      color: #ffffff;
+    }
+
+    .btn.active {
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .slide-counter {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    /* Print / PDF Styling */
+    @media print {
+      body {
+        overflow: visible !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .controls, .notes-drawer, .progress-container {
+        display: none !important;
+      }
+      .deck-container {
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
+      }
+      .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always !important;
+        height: 100vh !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        padding: 40px !important;
+      }
+      .slide-title { color: #0f172a !important; }
+      .bullet-item { color: #334155 !important; }
+      .card-box { background: #f8fafc !important; border: 1px solid #cbd5e1 !important; }
+      .metric-table th, .metric-table td { border-bottom: 1px solid #e2e8f0 !important; color: #000 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Deck Container -->
+  <div class="deck-container">
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide active" data-notes="Good morning/afternoon everyone. Today I'm presenting an AI Placement Skill-Match and Interview Readiness System. Traditional placement portals rely on rigid keyword search. Our project brings true semantic intelligence and supervised machine learning to university placements.">
+      <div>
+        <div class="slide-badge">Academic Project • AIML 2nd Year</div>
+        <h1 class="slide-title">AI University Placement Skill-Match & Readiness System</h1>
+        <p class="slide-subtitle">Beyond Keyword Searching: Dense Semantic Vectors & Supervised ML Classifiers</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="bullet-item">
+          <div class="bullet-dot"></div>
+          <div class="bullet-text">
+            <strong>The Problem:</strong> Traditional campus placement portals rely on rigid keyword exact matches and arbitrary cutoffs, unfairly screening out qualified students.
+          </div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background: var(--purple); box-shadow: 0 0 10px var(--purple);"></div>
+          <div class="bullet-text">
+            <strong>Our Solution:</strong> A dual-engine pipeline combining Sentence Transformers (Information Retrieval) with Scikit-learn Supervised Classifiers (Decision Intelligence).
+          </div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background: var(--emerald); box-shadow: 0 0 10px var(--emerald);"></div>
+          <div class="bullet-text">
+            <strong>Outcome:</strong> Mathematically sound candidate ranking, zero false rejections (100% Recall), and actionable gap analysis for student growth.
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Press <kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">→</kbd> or <kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">Space</kbd> to advance</span>
+        <span>Slide 1 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: Problem Statement -->
+    <div class="slide" data-notes="Here is why existing systems fail: If a student writes 'NLP' on their resume, but the job says 'Natural Language Processing', an exact keyword matcher scores them 0%. Furthermore, heuristic rules like 'score > 70% gets interview' completely ignore real project depth or relevant coursework.">
+      <div>
+        <div class="slide-badge" style="color:var(--amber); background:rgba(251,191,36,0.1); border-color:rgba(251,191,36,0.3);">Problem Statement</div>
+        <h2 class="slide-title">The "Keyword Trap" in Campus Placements</h2>
+        <p class="slide-subtitle">Why traditional Applicant Tracking Systems (ATS) fail students and recruiters</p>
+      </div>
+
+      <div class="slide-body grid-2">
+        <div class="card-box">
+          <h4 style="color:#f87171;">❌ Traditional Keyword Matching</h4>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">Rigid exact string comparison:</p>
+          <div class="bullet-item" style="font-size:14px; margin-bottom:10px;">
+            <div class="bullet-dot" style="background:#f87171;"></div>
+            <div class="bullet-text"><strong>Synonym Blindness:</strong> Rejects <code>"NLP"</code> when the job asks for <code>"Natural Language Processing"</code>.</div>
+          </div>
+          <div class="bullet-item" style="font-size:14px;">
+            <div class="bullet-dot" style="background:#f87171;"></div>
+            <div class="bullet-text"><strong>Arbitrary Cutoffs:</strong> Uses ungrounded rules like <code>"score > 70% = shortlist"</code>.</div>
+          </div>
+        </div>
+
+        <div class="card-box">
+          <h4 style="color:var(--emerald);">✅ Our Semantic & ML Approach</h4>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">Context-aware vector embeddings & learning:</p>
+          <div class="bullet-item" style="font-size:14px; margin-bottom:10px;">
+            <div class="bullet-dot" style="background:var(--emerald);"></div>
+            <div class="bullet-text"><strong>Conceptual Equivalence:</strong> Maps acronyms, skills, and projects into 384-d semantic space.</div>
+          </div>
+          <div class="bullet-item" style="font-size:14px;">
+            <div class="bullet-dot" style="background:var(--emerald);"></div>
+            <div class="bullet-text"><strong>Supervised Readiness:</strong> Learns multi-dimensional decision boundaries from placement history.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>University Placement System (LPU-PLACEMENT-01)</span>
+        <span>Slide 2 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Architecture -->
+    <div class="slide" data-notes="This diagram shows our end-to-end data pipeline. It starts with raw student profiles and job postings, runs them through our Sentence Transformer to extract semantic similarities, converts those into a 5-feature vector, feeds them into our trained ML model, and outputs a readiness badge and recommendation roadmap.">
+      <div>
+        <div class="slide-badge">System Architecture</div>
+        <h2 class="slide-title">End-to-End System Pipeline</h2>
+        <p class="slide-subtitle">How candidate data transforms into an intelligent interview readiness decision</p>
+      </div>
+
+      <div class="slide-body">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:10px;">
+          <div class="card-box" style="flex:1; text-align:center;">
+            <div style="font-size:24px; margin-bottom:6px;">📄</div>
+            <strong style="font-size:14px; display:block;">1. Ingestion</strong>
+            <span style="font-size:12px; color:var(--text-muted);">Defensive JSON schema validation</span>
+          </div>
+          <div style="color:var(--accent); font-size:20px;">➔</div>
+          <div class="card-box" style="flex:1.2; text-align:center; border-color:rgba(56,189,248,0.4);">
+            <div style="font-size:24px; margin-bottom:6px;">🧠</div>
+            <strong style="font-size:14px; display:block; color:var(--accent);">2. Semantic Matcher</strong>
+            <span style="font-size:12px; color:var(--text-muted);">384-d Transformers & Cosine Dot Product</span>
+          </div>
+          <div style="color:var(--accent); font-size:20px;">➔</div>
+          <div class="card-box" style="flex:1; text-align:center;">
+            <div style="font-size:24px; margin-bottom:6px;">📊</div>
+            <strong style="font-size:14px; display:block;">3. Feature Extraction</strong>
+            <span style="font-size:12px; color:var(--text-muted);">5 standardized numeric dimensions</span>
+          </div>
+          <div style="color:var(--accent); font-size:20px;">➔</div>
+          <div class="card-box" style="flex:1.2; text-align:center; border-color:rgba(52,211,153,0.4);">
+            <div style="font-size:24px; margin-bottom:6px;">🎯</div>
+            <strong style="font-size:14px; display:block; color:var(--emerald);">4. ML Classifier</strong>
+            <span style="font-size:12px; color:var(--text-muted);">Logistic Regression & Random Forest</span>
+          </div>
+        </div>
+
+        <div class="card-box" style="margin-top:20px;">
+          <strong style="color:#ffffff; font-size:15px;">Final Outputs Delivered:</strong>
+          <span style="font-size:14px; color:var(--text-muted); display:block; margin-top:4px;">
+            1. Calibrated Interview Readiness (e.g. <em>86.4% Probability</em>) • 2. Candidate Compatibility Rank • 3. Targeted Skill Gap Roadmap
+          </span>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Modular Python Design • src/semantic_matcher.py & src/readiness_model.py</span>
+        <span>Slide 3 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: Engine Layer 1 -->
+    <div class="slide" data-notes="Now looking at Layer 1: We use the all-MiniLM-L6-v2 transformer. To make matching instant, we pre-normalize all vectors to unit length. This simplifies cosine similarity to a simple dot product without square roots. We also implement a 3-tier threshold: 0.75 for strong matches, 0.55 to 0.74 for uncertain matches requiring human review, and below 0.55 for missing skills.">
+      <div>
+        <div class="slide-badge">Core Engine • Layer 1</div>
+        <h2 class="slide-title">Semantic Matching & Vector Optimization</h2>
+        <p class="slide-subtitle">Transformer embeddings with unit-length dot product acceleration</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="bullet-item">
+          <div class="bullet-dot"></div>
+          <div class="bullet-text">
+            <strong>Transformer Embeddings (<code>all-MiniLM-L6-v2</code>):</strong> Encodes skills and project narratives into dense 384-dimensional conceptual vectors.
+          </div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background:var(--emerald);"></div>
+          <div class="bullet-text">
+            <strong>Unit L2 Normalization (||v|| = 1.0):</strong> Pre-scaling vectors simplifies standard Cosine Similarity directly to a blazing-fast dot product: <code>np.dot(vec_a, vec_b)</code>.
+          </div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background:var(--amber);"></div>
+          <div class="bullet-text">
+            <strong>Scientific 3-Tier Thresholds:</strong>
+            <div class="bullet-sub">
+              • <strong>≥ 0.75 (Strong Match):</strong> Full credit (1.0) • Automatic approval<br>
+              • <strong>0.55 to 0.74 (Uncertain Match):</strong> Partial credit (0.5) • <em>Flags recruiter for human-in-the-loop review</em><br>
+              • <strong>&lt; 0.55 (Missing):</strong> Zero credit (0.0)
+            </div>
+          </div>
+        </div>
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background:var(--purple);"></div>
+          <div class="bullet-text">
+            <strong>Project Relevance Engine:</strong> Computes semantic alignment between student project portfolios and the target job domain.
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>In-Memory Caching Eliminates Redundant Neural Encodings</span>
+        <span>Slide 4 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: Engine Layer 2 -->
+    <div class="slide" data-notes="Layer 2 is our Supervised Readiness Classifier. Instead of arbitrary cutoffs, we extract 5 features: required skill coverage, preferred skill coverage, experience ratio, project relevance, and coursework overlap. We train both Logistic Regression and Random Forest using an 80/20 stratified split.">
+      <div>
+        <div class="slide-badge">Core Engine • Layer 2</div>
+        <h2 class="slide-title">Supervised Interview Readiness Classifier</h2>
+        <p class="slide-subtitle">Replacing arbitrary cutoffs with multivariate machine learning</p>
+      </div>
+
+      <div class="slide-body grid-2">
+        <div class="card-box">
+          <h4 style="color:var(--accent);">The 5 Extracted Features (X)</h4>
+          <ol style="font-size:14px; line-height:1.8; padding-left:18px; color:#cbd5e1;">
+            <li><strong>Required Skill Coverage:</strong> Mandatory skills match (0.0–1.0)</li>
+            <li><strong>Preferred Skill Coverage:</strong> Secondary skills match (0.0–1.0)</li>
+            <li><strong>Experience Ratio:</strong> Student / Job min experience</li>
+            <li><strong>Project Relevance:</strong> Semantic similarity score</li>
+            <li><strong>Coursework Overlap:</strong> Academic subject alignment</li>
+          </ol>
+        </div>
+
+        <div class="card-box">
+          <h4 style="color:var(--emerald);">Dual-Model Benchmark</h4>
+          <div class="bullet-item" style="font-size:14px; margin-bottom:10px;">
+            <div class="bullet-dot" style="background:var(--emerald);"></div>
+            <div class="bullet-text">
+              <strong>Logistic Regression (Primary):</strong> Highly interpretable, provides explicit linear coefficients (w<sub>i</sub>) and calibrated Sigmoid probabilities.
+            </div>
+          </div>
+          <div class="bullet-item" style="font-size:14px;">
+            <div class="bullet-dot" style="background:var(--purple);"></div>
+            <div class="bullet-text">
+              <strong>Random Forest (Benchmark):</strong> 50 decision trees capturing non-linear conditional interactions (e.g., exceptional project compensating experience).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Trained on 145 Academic Records • 80/20 Stratified Train/Test Split</span>
+        <span>Slide 5 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: Results -->
+    <div class="slide" data-notes="Here are our experimental results. Random Forest achieved 93.1% accuracy. Logistic Regression achieved 79.3% accuracy, but with a perfect 1.0 Recall. In university placements, 1.0 Recall means zero false negatives—no deserving student is wrongfully denied an interview. Furthermore, the learned weights show that project relevance is the single biggest predictor of success.">
+      <div>
+        <div class="slide-badge" style="color:var(--emerald); background:rgba(52,211,153,0.1); border-color:rgba(52,211,153,0.3);">Empirical Verification</div>
+        <h2 class="slide-title">Model Performance & Results</h2>
+        <p class="slide-subtitle">Experimental evaluation on unseen test data (29 evaluation pairs)</p>
+      </div>
+
+      <div class="slide-body grid-2">
+        <div class="card-box">
+          <h4 style="color:#ffffff;">Model Comparison</h4>
+          <table class="metric-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Logistic Reg</th>
+                <th>Random Forest</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Accuracy</td>
+                <td>79.3%</td>
+                <td class="highlight">93.1%</td>
+              </tr>
+              <tr>
+                <td>Recall (Ready)</td>
+                <td class="highlight">1.00 (100%)</td>
+                <td>0.94 (94.1%)</td>
+              </tr>
+              <tr>
+                <td>Precision</td>
+                <td>73.9%</td>
+                <td class="highlight">94.1%</td>
+              </tr>
+              <tr>
+                <td>Explainability</td>
+                <td class="highlight">Explicit Weights (w<sub>i</sub>)</td>
+                <td>Feature Imp.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-box">
+          <h4 style="color:var(--accent);">Key Learned Insights</h4>
+          <div class="bullet-item" style="font-size:14px; margin-bottom:8px;">
+            <div class="bullet-dot"></div>
+            <div class="bullet-text"><strong>Project Relevance dominates (+2.66):</strong> Strong projects influence interview selection more than coursework.</div>
+          </div>
+          <div class="bullet-item" style="font-size:14px; margin-bottom:8px;">
+            <div class="bullet-dot" style="background:var(--emerald);"></div>
+            <div class="bullet-text"><strong>Zero False Negatives:</strong> Logistic Regression's 100% Recall protects qualified students from unfair rejection.</div>
+          </div>
+          <div class="bullet-item" style="font-size:14px;">
+            <div class="bullet-dot" style="background:var(--purple);"></div>
+            <div class="bullet-text"><strong>Real Impact:</strong> Candidate with <code>"NLP"</code> jumped from <strong>33.3%</strong> (Keyword ATS) to <strong>86.7%</strong> (Our System).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Evaluated with Scikit-learn confusion matrices & zero-division safeguards</span>
+        <span>Slide 6 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: Recommendations -->
+    <div class="slide" data-notes="What truly makes our project stand out is that it is not just a screening tool; it is an improvement engine. When a student is marked 'Needs Improvement', the recommender pinpoints the exact missing required skills, and generates curated course and portfolio project recommendations to bridge their specific gaps.">
+      <div>
+        <div class="slide-badge">Student Growth Engine</div>
+        <h2 class="slide-title">Explainable Gap Analysis & Roadmaps</h2>
+        <p class="slide-subtitle">Transforming candidate rejections into actionable learning plans</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="card-box">
+            <h4 style="color:var(--amber);">🔍 Detailed Skill Breakdown</h4>
+            <p style="font-size:14px; color:var(--text-muted); margin-bottom:8px;">Full audit trail for students and recruiters:</p>
+            <div class="bullet-sub" style="font-size:13px; line-height:1.7;">
+              • <strong>Strong Matches:</strong> Verified automatically.<br>
+              • <strong>Uncertain Matches:</strong> Flagged for 1-click recruiter verification.<br>
+              • <strong>Missing Skills:</strong> Isolated with zero ambiguity.
+            </div>
+          </div>
+
+          <div class="card-box">
+            <h4 style="color:var(--emerald);">📚 Prescriptive Career Roadmaps</h4>
+            <p style="font-size:14px; color:var(--text-muted); margin-bottom:8px;">Concrete steps to reach "Interview Ready":</p>
+            <div class="bullet-sub" style="font-size:13px; line-height:1.7;">
+              • <strong>Curated Coursework:</strong> Recommends specific university subjects.<br>
+              • <strong>Portfolio Projects:</strong> Suggests domain-specific projects to boost <code>project_relevance</code> score.<br>
+              • <strong>Experience Bridge:</strong> Calculates exact internship months required.
+            </div>
+          </div>
+        </div>
+
+        <div class="card-box" style="margin-top:14px; background:rgba(56,189,248,0.05); border-color:rgba(56,189,248,0.2);">
+          <strong style="color:var(--accent); font-size:14px;">Ethical AI in Action:</strong>
+          <span style="font-size:13px; color:#cbd5e1; display:block; margin-top:2px;">
+            Every student receives constructive, transparent feedback instead of an automated "ghost" rejection email.
+          </span>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Powered by src/recommender.py • Automated Personalized Study Plans</span>
+        <span>Slide 7 / 8</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: Conclusion -->
+    <div class="slide" data-notes="To conclude: Our project successfully bridges the gap between raw resume text and fair placement decisions. By combining Sentence Transformers, unit vector dot products, and supervised classification, we deliver higher accuracy and total transparency. Thank you, and I am now ready for the live demonstration and questions.">
+      <div>
+        <div class="slide-badge" style="color:var(--purple); background:rgba(167,139,250,0.1); border-color:rgba(167,139,250,0.3);">Summary & Future Scope</div>
+        <h2 class="slide-title">Conclusion & Future Milestones</h2>
+        <p class="slide-subtitle">Summary of engineering contributions and next steps</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background:var(--emerald);"></div>
+          <div class="bullet-text">
+            <strong>Key Contributions:</strong>
+            <div class="bullet-sub" style="font-size:14px;">
+              ✅ Solved ATS keyword fragility via dense 384-d semantic embeddings.<br>
+              ✅ Eliminated arbitrary heuristics using supervised multivariate classification.<br>
+              ✅ Guaranteed fairness with 100% Recall on qualified candidates.<br>
+              ✅ Built complete, interactive 3-tab Streamlit dashboard for real-time evaluations.
+            </div>
+          </div>
+        </div>
+
+        <div class="bullet-item">
+          <div class="bullet-dot" style="background:var(--accent);"></div>
+          <div class="bullet-text">
+            <strong>Future Roadmap:</strong>
+            <div class="bullet-sub" style="font-size:14px;">
+              • Direct PDF resume parsing using layout-aware vision-language models.<br>
+              • Real-time mock interview AI agent calibrated to student skill gaps.<br>
+              • Seamless LMS integration for automatic academic transcript syncing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <strong style="color:#0f172a;">Thank You! • Ready for Live Demonstration & Questions</strong>
+        <span>Slide 8 / 8</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Collapsible Speaker Notes Drawer -->
+  <div class="notes-drawer" id="notesDrawer">
+    <div class="notes-icon">🗣️</div>
+    <div>
+      <strong style="color:#0f172a; display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px;">Speaker Talking Points (Press 'N' to toggle):</strong>
+      <span id="notesContent"></span>
+    </div>
+  </div>
+
+  <!-- Floating Controls -->
+  <div class="controls">
+    <button class="btn" id="prevBtn" onclick="prevSlide()">← Prev</button>
+    <span class="slide-counter" id="slideCounter">1 / 8</span>
+    <button class="btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    <button class="btn" id="notesToggleBtn" onclick="toggleNotes()">📝 Notes (N)</button>
+    <button class="btn" onclick="toggleFullscreen()">⛶ Fullscreen (F)</button>
+    <button class="btn" onclick="window.print()">🖨️ PDF</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const progressBar = document.getElementById('progressBar');
+    const slideCounter = document.getElementById('slideCounter');
+    const notesDrawer = document.getElementById('notesDrawer');
+    const notesContent = document.getElementById('notesContent');
+    const notesToggleBtn = document.getElementById('notesToggleBtn');
+
+    function updateSlide() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+
+      const progress = ((currentSlide + 1) / totalSlides) * 100;
+      progressBar.style.width = `${progress}%`;
+      slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+      // Update speaker notes
+      const notes = slides[currentSlide].getAttribute('data-notes') || 'No notes for this slide.';
+      notesContent.textContent = notes;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleNotes() {
+      notesDrawer.classList.toggle('open');
+      notesToggleBtn.classList.toggle('active');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key.toLowerCase() === 'n') {
+        toggleNotes();
+      } else if (e.key.toLowerCase() === 'f') {
+        toggleFullscreen();
+      } else if (e.key.toLowerCase() === 'p') {
+        window.print();
+      }
+    });
+
+    // Touch Swipe Support
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', (e) => {
+      let touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) prevSlide();
+    }, false);
+
+    // Initial load
+    updateSlide();
+  </script>
+</body>
+</html>

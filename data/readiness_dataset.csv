@@ -1,0 +1,146 @@
+pair_id,student_category,required_skill_coverage,preferred_skill_coverage,experience_ratio,project_relevance,coursework_overlap,readiness_label,label_reason
+PAIR_001,strong_candidate,0.91,0.513,1.203,0.55,0.895,1,Meets or exceeds all skill and experience requirements
+PAIR_002,strong_candidate,0.919,0.946,0.996,0.64,0.612,1,Meets or exceeds all skill and experience requirements
+PAIR_003,strong_candidate,0.805,0.753,0.929,0.539,0.86,1,Meets or exceeds all skill and experience requirements
+PAIR_004,strong_candidate,0.886,0.61,1.548,0.814,0.603,1,Meets or exceeds all skill and experience requirements
+PAIR_005,strong_candidate,0.951,0.849,1.274,0.52,0.983,1,Meets or exceeds all skill and experience requirements
+PAIR_006,strong_candidate,0.834,0.546,1.006,0.831,0.841,1,Meets or exceeds all skill and experience requirements
+PAIR_007,strong_candidate,0.952,0.865,1.49,0.888,0.751,1,Meets or exceeds all skill and experience requirements
+PAIR_008,strong_candidate,0.888,0.915,1.58,0.838,0.831,1,Meets or exceeds all skill and experience requirements
+PAIR_009,strong_candidate,0.926,0.523,1.151,0.58,0.632,1,Meets or exceeds all skill and experience requirements
+PAIR_010,strong_candidate,0.808,0.551,1.206,0.736,0.746,1,Meets or exceeds all skill and experience requirements
+PAIR_011,strong_candidate,0.843,0.605,1.194,0.871,0.859,1,Meets or exceeds all skill and experience requirements
+PAIR_012,strong_candidate,0.902,0.586,1.702,0.524,0.752,1,Meets or exceeds all skill and experience requirements
+PAIR_013,strong_candidate,0.997,0.82,1.513,0.758,0.937,1,Meets or exceeds all skill and experience requirements
+PAIR_014,strong_candidate,0.944,0.615,0.935,0.592,0.707,1,Meets or exceeds all skill and experience requirements
+PAIR_015,strong_candidate,0.803,0.971,1.864,0.592,0.862,1,Meets or exceeds all skill and experience requirements
+PAIR_016,strong_candidate,0.849,0.957,1.405,0.569,0.699,1,Meets or exceeds all skill and experience requirements
+PAIR_017,strong_candidate,0.89,0.631,1.543,0.854,0.76,1,Meets or exceeds all skill and experience requirements
+PAIR_018,strong_candidate,0.805,0.999,1.46,0.491,0.619,1,Meets or exceeds all skill and experience requirements
+PAIR_019,strong_candidate,0.777,0.814,1.771,0.64,0.625,1,Meets or exceeds all skill and experience requirements
+PAIR_020,strong_candidate,0.845,0.998,1.482,0.887,0.944,1,Meets or exceeds all skill and experience requirements
+PAIR_021,strong_candidate,0.753,0.86,1.65,0.692,0.707,1,Meets or exceeds all skill and experience requirements
+PAIR_022,strong_candidate,0.91,0.556,1.378,0.654,0.982,1,Meets or exceeds all skill and experience requirements
+PAIR_023,strong_candidate,0.969,0.632,1.451,0.53,0.965,1,Meets or exceeds all skill and experience requirements
+PAIR_024,strong_candidate,0.968,0.649,1.603,0.724,0.661,1,Meets or exceeds all skill and experience requirements
+PAIR_025,strong_candidate,0.941,0.77,1.756,0.689,0.6,1,Meets or exceeds all skill and experience requirements
+PAIR_026,strong_candidate,0.831,0.51,1.922,0.845,0.933,1,Meets or exceeds all skill and experience requirements
+PAIR_027,strong_candidate,0.827,0.529,1.866,0.876,0.634,1,Meets or exceeds all skill and experience requirements
+PAIR_028,strong_candidate,0.871,0.535,1.737,0.795,0.651,1,Meets or exceeds all skill and experience requirements
+PAIR_029,strong_candidate,0.869,0.775,1.192,0.843,0.769,1,Meets or exceeds all skill and experience requirements
+PAIR_030,strong_candidate,0.803,0.77,1.703,0.541,0.725,1,Meets or exceeds all skill and experience requirements
+PAIR_031,strong_candidate,0.999,0.825,1.382,0.683,0.648,1,Meets or exceeds all skill and experience requirements
+PAIR_032,strong_candidate,0.806,0.669,1.547,0.554,0.688,1,Meets or exceeds all skill and experience requirements
+PAIR_033,strong_candidate,0.768,0.816,1.152,0.857,0.944,1,Meets or exceeds all skill and experience requirements
+PAIR_034,strong_candidate,0.768,0.619,1.636,0.546,0.653,1,Meets or exceeds all skill and experience requirements
+PAIR_035,strong_candidate,0.984,0.786,1.42,0.803,0.923,1,Meets or exceeds all skill and experience requirements
+PAIR_036,strong_candidate,0.798,0.548,1.374,0.641,0.787,1,Meets or exceeds all skill and experience requirements
+PAIR_037,strong_candidate,0.932,0.837,1.983,0.494,0.761,1,Meets or exceeds all skill and experience requirements
+PAIR_038,strong_candidate,0.835,0.931,1.174,0.536,0.779,1,Meets or exceeds all skill and experience requirements
+PAIR_039,strong_candidate,0.855,0.639,1.175,0.865,0.777,1,Meets or exceeds all skill and experience requirements
+PAIR_040,strong_candidate,0.965,0.775,0.956,0.9,0.934,1,Meets or exceeds all skill and experience requirements
+PAIR_041,strong_candidate,0.992,0.963,1.834,0.525,0.794,1,Meets or exceeds all skill and experience requirements
+PAIR_042,strong_candidate,0.803,0.701,0.964,0.621,0.994,1,Meets or exceeds all skill and experience requirements
+PAIR_043,strong_candidate,0.816,0.892,1.401,0.64,0.983,1,Meets or exceeds all skill and experience requirements
+PAIR_044,strong_candidate,0.999,0.778,1.69,0.52,0.719,1,Meets or exceeds all skill and experience requirements
+PAIR_045,strong_candidate,0.992,0.79,1.496,0.787,0.623,1,Meets or exceeds all skill and experience requirements
+PAIR_046,strong_candidate,0.896,0.751,1.838,0.521,0.984,1,Meets or exceeds all skill and experience requirements
+PAIR_047,strong_candidate,0.77,0.593,1.555,0.754,0.694,1,Meets or exceeds all skill and experience requirements
+PAIR_048,strong_candidate,0.78,0.945,1.171,0.718,0.848,1,Meets or exceeds all skill and experience requirements
+PAIR_049,strong_candidate,0.855,0.792,1.475,0.871,0.682,1,Meets or exceeds all skill and experience requirements
+PAIR_050,strong_candidate,0.929,0.619,1.335,0.752,0.72,1,Meets or exceeds all skill and experience requirements
+PAIR_051,unqualified_candidate,0.226,0.301,0.036,0.187,0.399,0,Substantial skill and qualification deficiencies
+PAIR_052,unqualified_candidate,0.498,0.029,0.107,0.13,0.373,0,Substantial skill and qualification deficiencies
+PAIR_053,unqualified_candidate,0.452,0.352,0.185,0.097,0.333,0,Substantial skill and qualification deficiencies
+PAIR_054,unqualified_candidate,0.381,0.245,0.494,0.246,0.003,0,Substantial skill and qualification deficiencies
+PAIR_055,unqualified_candidate,0.427,0.12,0.332,0.332,0.054,0,Substantial skill and qualification deficiencies
+PAIR_056,unqualified_candidate,0.146,0.043,0.277,0.132,0.242,0,Substantial skill and qualification deficiencies
+PAIR_057,unqualified_candidate,0.387,0.081,0.317,0.129,0.195,0,Substantial skill and qualification deficiencies
+PAIR_058,unqualified_candidate,0.462,0.338,0.046,0.177,0.111,0,Substantial skill and qualification deficiencies
+PAIR_059,unqualified_candidate,0.101,0.308,0.319,0.129,0.296,0,Substantial skill and qualification deficiencies
+PAIR_060,unqualified_candidate,0.321,0.171,0.005,0.073,0.353,0,Substantial skill and qualification deficiencies
+PAIR_061,unqualified_candidate,0.462,0.218,0.417,0.225,0.059,0,Substantial skill and qualification deficiencies
+PAIR_062,unqualified_candidate,0.151,0.123,0.449,0.289,0.344,0,Substantial skill and qualification deficiencies
+PAIR_063,unqualified_candidate,0.46,0.084,0.125,0.081,0.312,0,Substantial skill and qualification deficiencies
+PAIR_064,unqualified_candidate,0.454,0.163,0.31,0.096,0.372,0,Substantial skill and qualification deficiencies
+PAIR_065,unqualified_candidate,0.446,0.39,0.405,0.314,0.01,0,Substantial skill and qualification deficiencies
+PAIR_066,unqualified_candidate,0.395,0.133,0.465,0.291,0.346,0,Substantial skill and qualification deficiencies
+PAIR_067,unqualified_candidate,0.424,0.107,0.394,0.082,0.349,0,Substantial skill and qualification deficiencies
+PAIR_068,unqualified_candidate,0.443,0.089,0.408,0.188,0.122,0,Substantial skill and qualification deficiencies
+PAIR_069,unqualified_candidate,0.418,0.091,0.012,0.108,0.131,0,Substantial skill and qualification deficiencies
+PAIR_070,unqualified_candidate,0.446,0.387,0.14,0.242,0.16,0,Substantial skill and qualification deficiencies
+PAIR_071,unqualified_candidate,0.492,0.214,0.47,0.085,0.388,0,Substantial skill and qualification deficiencies
+PAIR_072,unqualified_candidate,0.171,0.385,0.133,0.083,0.174,0,Substantial skill and qualification deficiencies
+PAIR_073,unqualified_candidate,0.391,0.125,0.303,0.203,0.154,0,Substantial skill and qualification deficiencies
+PAIR_074,unqualified_candidate,0.331,0.102,0.354,0.051,0.37,0,Substantial skill and qualification deficiencies
+PAIR_075,unqualified_candidate,0.315,0.288,0.371,0.251,0.146,0,Substantial skill and qualification deficiencies
+PAIR_076,unqualified_candidate,0.128,0.266,0.165,0.144,0.339,0,Substantial skill and qualification deficiencies
+PAIR_077,unqualified_candidate,0.388,0.12,0.155,0.173,0.161,0,Substantial skill and qualification deficiencies
+PAIR_078,unqualified_candidate,0.218,0.051,0.21,0.332,0.271,0,Substantial skill and qualification deficiencies
+PAIR_079,unqualified_candidate,0.461,0.246,0.15,0.214,0.0,0,Substantial skill and qualification deficiencies
+PAIR_080,unqualified_candidate,0.215,0.172,0.29,0.246,0.186,0,Substantial skill and qualification deficiencies
+PAIR_081,unqualified_candidate,0.277,0.085,0.237,0.32,0.318,0,Substantial skill and qualification deficiencies
+PAIR_082,unqualified_candidate,0.168,0.034,0.258,0.24,0.134,0,Substantial skill and qualification deficiencies
+PAIR_083,unqualified_candidate,0.427,0.3,0.336,0.117,0.08,0,Substantial skill and qualification deficiencies
+PAIR_084,unqualified_candidate,0.11,0.098,0.238,0.305,0.029,0,Substantial skill and qualification deficiencies
+PAIR_085,unqualified_candidate,0.266,0.252,0.097,0.259,0.198,0,Substantial skill and qualification deficiencies
+PAIR_086,unqualified_candidate,0.198,0.262,0.003,0.275,0.308,0,Substantial skill and qualification deficiencies
+PAIR_087,unqualified_candidate,0.143,0.17,0.088,0.337,0.207,0,Substantial skill and qualification deficiencies
+PAIR_088,unqualified_candidate,0.12,0.1,0.424,0.187,0.321,0,Substantial skill and qualification deficiencies
+PAIR_089,unqualified_candidate,0.367,0.395,0.298,0.335,0.357,0,Substantial skill and qualification deficiencies
+PAIR_090,unqualified_candidate,0.345,0.288,0.252,0.299,0.219,0,Substantial skill and qualification deficiencies
+PAIR_091,unqualified_candidate,0.459,0.297,0.237,0.128,0.099,0,Substantial skill and qualification deficiencies
+PAIR_092,unqualified_candidate,0.355,0.306,0.261,0.238,0.11,0,Substantial skill and qualification deficiencies
+PAIR_093,unqualified_candidate,0.131,0.114,0.136,0.146,0.216,0,Substantial skill and qualification deficiencies
+PAIR_094,unqualified_candidate,0.155,0.093,0.347,0.262,0.026,0,Substantial skill and qualification deficiencies
+PAIR_095,unqualified_candidate,0.263,0.217,0.208,0.112,0.168,0,Substantial skill and qualification deficiencies
+PAIR_096,unqualified_candidate,0.462,0.234,0.348,0.307,0.306,0,Substantial skill and qualification deficiencies
+PAIR_097,unqualified_candidate,0.252,0.002,0.176,0.276,0.341,0,Substantial skill and qualification deficiencies
+PAIR_098,unqualified_candidate,0.481,0.168,0.374,0.214,0.241,0,Substantial skill and qualification deficiencies
+PAIR_099,unqualified_candidate,0.188,0.088,0.218,0.059,0.134,0,Substantial skill and qualification deficiencies
+PAIR_100,unqualified_candidate,0.372,0.162,0.083,0.19,0.051,0,Substantial skill and qualification deficiencies
+PAIR_101,borderline_skills_over_exp,0.874,0.408,0.238,0.698,0.511,1,Passes due to exceptional project portfolio
+PAIR_102,borderline_skills_over_exp,0.879,0.441,0.262,0.518,0.652,0,Needs more hands-on practical experience
+PAIR_103,borderline_skills_over_exp,0.792,0.498,0.366,0.633,0.801,0,Needs more hands-on practical experience
+PAIR_104,borderline_skills_over_exp,0.916,0.476,0.129,0.507,0.716,0,Needs more hands-on practical experience
+PAIR_105,borderline_skills_over_exp,0.95,0.505,0.328,0.773,0.761,1,Passes due to exceptional project portfolio
+PAIR_106,borderline_skills_over_exp,0.901,0.685,0.17,0.507,0.561,0,Needs more hands-on practical experience
+PAIR_107,borderline_skills_over_exp,0.775,0.601,0.297,0.576,0.78,0,Needs more hands-on practical experience
+PAIR_108,borderline_skills_over_exp,0.903,0.45,0.313,0.762,0.546,1,Passes due to exceptional project portfolio
+PAIR_109,borderline_skills_over_exp,0.914,0.689,0.138,0.509,0.625,0,Needs more hands-on practical experience
+PAIR_110,borderline_skills_over_exp,0.885,0.687,0.239,0.75,0.53,1,Passes due to exceptional project portfolio
+PAIR_111,borderline_skills_over_exp,0.888,0.588,0.136,0.77,0.84,1,Passes due to exceptional project portfolio
+PAIR_112,borderline_skills_over_exp,0.87,0.436,0.444,0.774,0.639,1,Passes due to exceptional project portfolio
+PAIR_113,borderline_skills_over_exp,0.836,0.511,0.277,0.619,0.84,0,Needs more hands-on practical experience
+PAIR_114,borderline_skills_over_exp,0.914,0.432,0.436,0.722,0.831,1,Passes due to exceptional project portfolio
+PAIR_115,borderline_skills_over_exp,0.891,0.531,0.357,0.838,0.608,1,Passes due to exceptional project portfolio
+PAIR_116,borderline_skills_over_exp,0.912,0.561,0.269,0.652,0.792,1,Passes due to exceptional project portfolio
+PAIR_117,borderline_skills_over_exp,0.804,0.656,0.391,0.53,0.853,0,Needs more hands-on practical experience
+PAIR_118,borderline_skills_over_exp,0.799,0.539,0.314,0.633,0.511,0,Needs more hands-on practical experience
+PAIR_119,borderline_skills_over_exp,0.92,0.455,0.174,0.779,0.636,1,Passes due to exceptional project portfolio
+PAIR_120,borderline_skills_over_exp,0.926,0.61,0.197,0.504,0.879,0,Needs more hands-on practical experience
+PAIR_121,borderline_skills_over_exp,0.767,0.616,0.271,0.765,0.776,1,Passes due to exceptional project portfolio
+PAIR_122,borderline_skills_over_exp,0.879,0.547,0.378,0.533,0.589,0,Needs more hands-on practical experience
+PAIR_123,borderline_skills_over_exp,0.888,0.492,0.304,0.666,0.712,1,Passes due to exceptional project portfolio
+PAIR_124,borderline_skills_over_exp,0.835,0.624,0.216,0.746,0.608,1,Passes due to exceptional project portfolio
+PAIR_125,borderline_skills_over_exp,0.8,0.436,0.167,0.542,0.714,0,Needs more hands-on practical experience
+PAIR_126,borderline_exp_over_skills,0.591,0.656,1.373,0.445,0.59,0,High experience cannot substitute for missing mandatory core skills
+PAIR_127,borderline_exp_over_skills,0.644,0.757,1.426,0.33,0.378,0,High experience cannot substitute for missing mandatory core skills
+PAIR_128,borderline_exp_over_skills,0.457,0.654,1.211,0.46,0.41,0,High experience cannot substitute for missing mandatory core skills
+PAIR_129,borderline_exp_over_skills,0.644,0.766,1.758,0.338,0.647,0,High experience cannot substitute for missing mandatory core skills
+PAIR_130,borderline_exp_over_skills,0.523,0.862,1.659,0.441,0.476,0,High experience cannot substitute for missing mandatory core skills
+PAIR_131,borderline_exp_over_skills,0.446,0.615,1.953,0.443,0.629,0,High experience cannot substitute for missing mandatory core skills
+PAIR_132,borderline_exp_over_skills,0.5,0.622,1.704,0.316,0.36,0,High experience cannot substitute for missing mandatory core skills
+PAIR_133,borderline_exp_over_skills,0.541,0.691,1.995,0.336,0.606,0,High experience cannot substitute for missing mandatory core skills
+PAIR_134,borderline_exp_over_skills,0.552,0.837,1.381,0.457,0.48,0,High experience cannot substitute for missing mandatory core skills
+PAIR_135,borderline_exp_over_skills,0.511,0.858,1.992,0.392,0.548,0,High experience cannot substitute for missing mandatory core skills
+PAIR_136,borderline_exp_over_skills,0.552,0.822,1.958,0.362,0.384,0,High experience cannot substitute for missing mandatory core skills
+PAIR_137,borderline_exp_over_skills,0.565,0.647,1.339,0.323,0.301,0,High experience cannot substitute for missing mandatory core skills
+PAIR_138,borderline_exp_over_skills,0.513,0.778,1.433,0.369,0.583,0,High experience cannot substitute for missing mandatory core skills
+PAIR_139,borderline_exp_over_skills,0.576,0.736,1.75,0.577,0.615,0,High experience cannot substitute for missing mandatory core skills
+PAIR_140,borderline_exp_over_skills,0.556,0.798,1.947,0.428,0.518,0,High experience cannot substitute for missing mandatory core skills
+PAIR_141,edge_empty_profile,0.0,0.0,0.0,0.0,0.0,0,Empty profile - completely unverified
+PAIR_142,edge_perfect_candidate,1.0,1.0,2.0,0.95,1.0,1,Ideal maximum benchmark candidate
+PAIR_143,edge_zero_exp_fresher_eligible,0.85,0.7,1.0,0.75,0.8,1,Fresher role where 0 exp is fully acceptable
+PAIR_144,edge_single_skill_match,0.25,0.0,0.0,0.1,0.0,0,Only 1 out of 4 skills satisfied
+PAIR_145,edge_no_coursework_match,0.8,0.6,1.0,0.7,0.0,1,Strong practical skills with non-standard coursework
