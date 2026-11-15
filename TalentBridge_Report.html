@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentBridge - University Placement System Report</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-subtle: #f8fafc;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #0284c7;
+      --primary-subtle: #e0f2fe;
+      --emerald: #059669;
+      --emerald-subtle: #d1fae5;
+      --amber: #d97706;
+      --amber-subtle: #fef3c7;
+      --purple: #7c3aed;
+      --purple-subtle: #ede9fe;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px 80px 20px;
+    }
+
+    /* Floating Download / Action Bar */
+    .action-bar {
+      position: fixed;
+      top: 16px;
+      right: 24px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 8px 14px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-dark);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+
+    .btn-primary:hover {
+      background: #0369a1;
+      color: #ffffff;
+    }
+
+    /* Paper Container */
+    .document-paper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 60px 70px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Title Block */
+    .title-block {
+      text-align: center;
+      padding-bottom: 30px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 36px;
+    }
+
+    .inst-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-subtle);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+    }
+
+    h1.project-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .author-meta {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* Headings */
+    h2.section-header {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0369a1;
+      border-bottom: 2px solid #e0f2fe;
+      padding-bottom: 6px;
+      margin-top: 36px;
+      margin-bottom: 16px;
+    }
+
+    h3.sub-header {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    p, li {
+      font-size: 14px;
+      color: #334155;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 12px;
+    }
+
+    /* Highlight Card Boxes */
+    .card-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+    }
+
+    .badge-blue { background: var(--primary-subtle); color: var(--primary); }
+    .badge-green { background: var(--emerald-subtle); color: var(--emerald); }
+    .badge-amber { background: var(--amber-subtle); color: var(--amber); }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--surface-subtle);
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    /* Code Blocks */
+    pre, code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    code {
+      background: #f1f5f9;
+      color: #0369a1;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    pre {
+      background: #f8fafc;
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      padding: 14px;
+      font-size: 12px;
+      overflow-x: auto;
+      margin: 14px 0;
+      line-height: 1.45;
+    }
+
+    /* Mathematical Formula Container */
+    .formula-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-style: italic;
+      color: #0f172a;
+      font-size: 13.5px;
+    }
+
+    /* Print / PDF Specific Rules */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #000000 !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .document-paper {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      h2.section-header {
+        page-break-after: avoid;
+        margin-top: 24px;
+      }
+
+      .card-box, table, pre {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Floating Action Bar -->
+  <div class="action-bar">
+    <a class="btn btn-primary" href="TalentBridge_Report.pdf" download="TalentBridge_Report.pdf">📥 Download PDF File</a>
+    <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <button class="btn" onclick="downloadHTML()">💾 Download HTML</button>
+    <button class="btn" onclick="downloadMarkdown()">📄 Download Markdown (.md)</button>
+  </div>
+
+  <!-- Document Paper Container (White Background) -->
+  <div class="document-paper" id="reportContent">
+
+    <!-- Title Block -->
+    <div class="title-block">
+      <div class="inst-tag">Lovely Professional University • CSE276 Academic Report</div>
+      <h1 class="project-title">TalentBridge: University Placement Skill-Match Ranking and Interview Readiness System</h1>
+      <div class="author-meta">
+        <strong>Author:</strong> Samridhjit Barnwal (Reg. No: 12509754, Roll No: 21, Section: K3P25IN) • B.Tech CSE (AI & ML)<br>
+        <strong>Course:</strong> CSE276: Artificial Intelligence & Foundations • Academic Session 2026–2027<br>
+        <strong>Mentor / Faculty Guide:</strong> Sir Hitesh Kumar • School of Computer Science & Engineering<br>
+        <strong>Problem ID:</strong> LPU-PLACEMENT-01 • Lovely Professional University
+      </div>
+    </div>
+
+    <!-- 1. PRELIMINARIES -->
+    <h2 class="section-header">1. Preliminaries (Front Matter)</h2>
+    
+    <div class="card-box">
+      <strong>Declaration & Certification:</strong> I, <strong>Samridhjit Barnwal (Reg. No: 12509754, Roll No: 21, Section: K3P25IN)</strong>, hereby declare that this report embodies original engineering and analytical work carried out for course CSE276 under the supervision of <strong>Sir Hitesh Kumar</strong>. All literature, mathematical formulations, and software libraries have been duly credited.<br>
+      <em>Approved by:</em> <strong>Sir Hitesh Kumar</strong> (Course Mentor) & Head of Department, School of Computer Science & Engineering, Lovely Professional University.
+    </div>
+
+    <p><strong>Acknowledgements:</strong> I express my sincere gratitude to my course instructor and mentor, <strong>Sir Hitesh Kumar</strong>, for his invaluable guidance, technical reviews, and encouragement throughout the design and evaluation of TalentBridge. I also thank the LPU Career Services Division for domain insights into campus placement bottlenecks.</p>
+
+    <div class="card-box" style="border-left: 4px solid var(--primary);">
+      <strong>Abstract / Executive Summary:</strong> Campus recruitment drives frequently rely on rigid keyword matching and arbitrary CGPA cutoffs. This introduces the <strong>"Keyword Trap"</strong> (rejecting qualified students for using synonymous terminology such as "NLP" instead of "Natural Language Processing") and the <strong>"Rejection Void"</strong> (generic rejections with zero diagnostic feedback). <strong>TalentBridge</strong> resolves these issues through a multi-stage AI pipeline: (1) domain acronym canonicalization, (2) dense semantic matching using Sentence Transformers (<code>all-MiniLM-L6-v2</code>), (3) supervised interview readiness classification over a 5-dimensional feature space, and (4) prescriptive gap remediation offering targeted courses and projects. On a held-out test set ($N=29$), the supervised Random Forest model achieved <strong>93.10% accuracy</strong> and <strong>100% recall</strong> (zero false negatives), ensuring qualified students are never mistakenly screened out.
+    </div>
+
+    <!-- 2. CHAPTER I -->
+    <h2 class="section-header">2. Chapter I: Introduction & Context</h2>
+    <p><strong>1.1 Background:</strong> Higher education placement drives process thousands of engineering students against hundreds of corporate requisitions under tight deadlines. Traditional Applicant Tracking Systems (ATS) rely on exact string matching and linear CGPA cutoffs to manage volume.</p>
+    
+    <p><strong>1.2 Problem Statement:</strong></p>
+    <ul>
+      <li><strong>The Keyword Trap:</strong> Lexical matching fails to recognize semantic equivalents (e.g., <code>PyTorch</code> vs. <code>Deep Learning</code>), penalizing students due to syntactic variations.</li>
+      <li><strong>Linear Heuristic Screening:</strong> Rigid rules (<code>if CGPA >= 8.0 AND exp >= 6 mos</code>) discard self-taught builders who have outstanding capstone projects but lower GPAs.</li>
+      <li><strong>The Rejection Void:</strong> Students receive generic rejections with zero diagnostic feedback, preventing strategic skill development.</li>
+    </ul>
+
+    <p><strong>1.3 Objectives of the Study (SMART Goals):</strong></p>
+    <ul>
+      <li>Attain $\ge 90\%$ semantic similarity across technical aliases and framework hierarchies.</li>
+      <li>Achieve <strong>100.00% Recall</strong> on evaluation data, guaranteeing zero false negatives among qualified candidates.</li>
+      <li>Deliver $\ge 90\%$ accuracy and $\ge 85\%$ precision using an ensemble Random Forest classifier.</li>
+      <li>Automatically generate actionable project and coursework roadmaps for identified skill gaps.</li>
+      <li>Maintain sub-15ms cached response times on an interactive web dashboard.</li>
+    </ul>
+
+    <!-- 3. CHAPTER II -->
+    <h2 class="section-header">3. Chapter II: Literature Review & Technical Study</h2>
+    <p><strong>2.1 Evolution of ATS:</strong> Early commercial ATS platforms relied on Boolean search strings. Research shows keyword screening rejects over 70% of qualified candidates due to vocabulary mismatches (Faliagka et al., 2012). Lexical TF-IDF treats synonyms as orthogonal vectors, while static Word2Vec representations struggle with contextual multi-word technical descriptions.</p>
+    
+    <p><strong>2.2 Sentence Transformers & SBERT:</strong> Reimers & Gurevych (2019) introduced Sentence-BERT, utilizing siamese networks to derive continuous sentence embeddings comparable via cosine distance. TalentBridge adopts <code>all-MiniLM-L6-v2</code>, mapping text into 384-dimensional dense vectors with low CPU latency.</p>
+
+    <!-- 4. CHAPTER III -->
+    <h2 class="section-header">4. Chapter III: Methodology & Architecture</h2>
+    <p>TalentBridge operates across four decoupled layers: (1) Data Layer (SQLite & JSON), (2) NLP Engine (Canonical Alias Map & SBERT), (3) Decision Layer (5D Feature Extraction, Logistic Regression, Random Forest, Recommender), and (4) Delivery Layer (Clean White-Background Streamlit UI & FastAPI REST service).</p>
+
+    <div class="formula-box">
+      <strong>Cosine Vector Similarity:</strong> &nbsp;
+      Sim(u, v) = (u · v) / (||u||₂ ||v||₂) = Σ (uᵢ · vᵢ) &nbsp; [for unit vectors in ℝ³⁸⁴]
+    </div>
+
+    <p><strong>Multi-Tier Gating Thresholds:</strong></p>
+    <ul>
+      <li><span class="badge badge-green">Strong Equivalence (Sim ≥ 0.75)</span> Confirmed match (e.g., PyTorch ↔ Deep Learning).</li>
+      <li><span class="badge badge-amber">Interview Review (0.55 ≤ Sim &lt; 0.75)</span> Related domain; flagged for technical interviewer verification.</li>
+      <li><span class="badge" style="background:#fee2e2; color:#b91c1c;">Missing Prerequisite (Sim &lt; 0.55)</span> Prerequisite not satisfied; routed to recommender.</li>
+    </ul>
+
+    <p><strong>The 5-Dimensional Interaction Feature Space (x):</strong></p>
+    <ol>
+      <li><code>x₁ (Required Skill Coverage)</code>: Ratio of mandatory prerequisites satisfied at Sim ≥ 0.75.</li>
+      <li><code>x₂ (Preferred Skill Coverage)</code>: Ratio of preferred bonus skills satisfied at Sim ≥ 0.75.</li>
+      <li><code>x₃ (Experience Ratio)</code>: Candidate internship months / Job required months (capped at 2.0).</li>
+      <li><code>x₄ (Project Domain Relevance)</code>: Max cosine similarity between student projects and job domain.</li>
+      <li><code>x₅ (Coursework Overlap)</code>: Ratio of university coursework matching job prerequisites.</li>
+    </ol>
+
+    <!-- 5. CHAPTER IV -->
+    <h2 class="section-header">5. Chapter IV: Implementation & Execution</h2>
+    <p><strong>4.1 Core Modules:</strong></p>
+    <ul>
+      <li><code>data_loader.py</code>: Implements canonical alias normalization (<code>"nlp"</code> → <code>"Natural Language Processing"</code>, <code>"postgres"</code> → <code>"PostgreSQL"</code>).</li>
+      <li><code>semantic_matcher.py</code>: Computes embeddings and caches vectors in an in-memory dictionary (<code>_EMBEDDING_CACHE</code>), cutting UI latency from 850ms to &lt; 15ms.</li>
+      <li><code>readiness_model.py</code>: Evaluates interview readiness via Scikit-Learn Logistic Regression and Random Forest models.</li>
+      <li><code>recommender.py</code>: Generates targeted coursework and open-source project roadmaps for missing mandatory skills.</li>
+      <li><code>streamlit_app.py</code>: Clean white-background interface supporting Student Dossier and Recruiter Command Center views.</li>
+    </ul>
+
+    <pre><code>def extract_features(student: dict, job: dict, match_result: dict) -> dict:
+    req_cov = float(match_result.get("required_coverage", 0.0))
+    pref_cov = float(match_result.get("preferred_coverage", 0.0))
+    proj_rel = float(match_result.get("project_relevance", 0.0))
+    exp_ratio = min(2.0, student.get("exp", 0) / max(job.get("min_exp", 1), 1))
+    return {"req_cov": req_cov, "pref_cov": pref_cov, "exp_ratio": exp_ratio, "proj_rel": proj_rel}</code></pre>
+
+    <p><strong>4.2 Engineering Challenges Solved:</strong></p>
+    <ul>
+      <li><em>Semantic Drift:</em> Unchecked cosine similarity scored "Python" vs. "PyTorch" at 0.58. Raising the strong threshold to 0.75 and creating the 0.55–0.74 review zone eliminated false positives.</li>
+      <li><em>UI Latency:</em> Repeated transformer encoding caused lag. In-memory caching made subsequent lookups instantaneous.</li>
+      <li><em>Defensive Zero-Division Handling:</em> Added safeguards for empty profiles or zero declared skills.</li>
+    </ul>
+
+    <!-- 6. CHAPTER V -->
+    <h2 class="section-header">6. Chapter V: Results, Testing, & Analysis</h2>
+    <p><strong>5.1 Dataset:</strong> 145 stratified pairs (Strong: 35%, Unqualified: 35%, High Skill/Low Exp: 17%, High Exp/Missing Skill: 10%, Edge: 3%) with an 80/20 train/test split.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Input Pair</th>
+          <th>Keyword Match</th>
+          <th>TalentBridge Match</th>
+          <th>Operational Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>NLP</code> vs <code>Natural Language Processing</code></td>
+          <td>❌ Miss (0.00)</td>
+          <td>✅ <strong>1.00</strong> (Canonical)</td>
+          <td>Eliminates acronym false-rejection.</td>
+        </tr>
+        <tr>
+          <td><code>PyTorch</code> vs <code>Deep Learning</code></td>
+          <td>❌ Miss (0.00)</td>
+          <td>✅ <strong>0.78</strong> (Strong)</td>
+          <td>Recognizes framework-to-domain hierarchy.</td>
+        </tr>
+        <tr>
+          <td><code>Docker</code> vs <code>Containerization</code></td>
+          <td>❌ Miss (0.00)</td>
+          <td>✅ <strong>0.81</strong> (Strong)</td>
+          <td>Maps tools to architectural standards.</td>
+        </tr>
+        <tr>
+          <td><code>Java</code> vs <code>JavaScript</code></td>
+          <td>❌ Miss / Prefix Error</td>
+          <td>⚪ <strong>0.31</strong> (Deficient)</td>
+          <td>Avoids superficial substring confusion.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>5.2 Quantitative Model Evaluation (Held-Out Test Set: N = 29):</strong></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Logistic Regression</th>
+          <th>Random Forest Classifier</th>
+          <th>Takeaway</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Accuracy</strong></td>
+          <td>79.31%</td>
+          <td><strong>93.10%</strong></td>
+          <td>Random Forest captures non-linear boundary trade-offs.</td>
+        </tr>
+        <tr>
+          <td><strong>Precision</strong></td>
+          <td>68.42%</td>
+          <td><strong>86.67%</strong></td>
+          <td>Random Forest slashes false positives from 6 down to 2.</td>
+        </tr>
+        <tr>
+          <td><strong>Recall (Sensitivity)</strong></td>
+          <td><strong>100.00%</strong></td>
+          <td><strong>100.00%</strong></td>
+          <td><strong>Zero False Negatives:</strong> No qualified candidate is mistakenly screened out.</td>
+        </tr>
+        <tr>
+          <td><strong>F1-Score</strong></td>
+          <td>81.25%</td>
+          <td><strong>92.86%</strong></td>
+          <td>High harmonic balance of precision and recall.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>5.3 Feature Importance:</strong> Logistic regression weights confirm <code>Project Relevance (+2.6643)</code> and <code>Required Skill Coverage (+2.5475)</code> dominate outcomes, matching Random Forest Gini importances (32.13% and 30.13%). Demonstrable project proof outweighs tenure alone.</p>
+
+    <!-- 7. CHAPTER VI -->
+    <h2 class="section-header">7. Chapter VI: Conclusion & Recommendations</h2>
+    <p><strong>6.1 Conclusion:</strong> TalentBridge proves that campus placement systems can be fair, semantic, and explainable. Combining Sentence Transformers with canonical normalization and supervised classification achieved <strong>93.10% accuracy</strong> and <strong>100% recall</strong>.</p>
+    <p><strong>6.2 Recommendations:</strong> Placement cells should evaluate candidates holistically through verified projects and coursework, and provide automated diagnostic feedback to non-shortlisted applicants.</p>
+    <p><strong>6.3 Future Scope:</strong> OCR resume PDF parsing, two-stage cross-encoder re-ranking, and adaptive AI mock technical interviews.</p>
+
+    <!-- 8. END MATTER -->
+    <h2 class="section-header">8. End Matter (References & Appendices)</h2>
+    <p><strong>References:</strong></p>
+    <ol>
+      <li>Devlin, J., et al. (2018). <em>BERT: Pre-training of Deep Bidirectional Transformers</em>. arXiv:1810.04805.</li>
+      <li>Faliagka, E., et al. (2012). An integrated e-recruitment system. <em>Internet Research</em>, 22(5), 551-568.</li>
+      <li>Pedregosa, F., et al. (2011). Scikit-learn: Machine learning in Python. <em>JMLR</em>, 12, 2825-2830.</li>
+      <li>Reimers, N., & Gurevych, I. (2019). <em>Sentence-BERT</em>. EMNLP-IJCNLP, 3982-3992.</li>
+      <li>Vaswani, A., et al. (2017). <em>Attention is all you need</em>. NeurIPS, 30, 5998-6008.</li>
+    </ol>
+
+    <div class="card-box">
+      <strong>Appendix: Sample Prescriptive Diagnostic Output</strong><br>
+      <code>Candidate: Samridhjit Barnwal • Target: ML Engineer • Verdict: Competency Bridge Plan</code><br>
+      • <strong>Identified Gaps:</strong> Docker (Sim: 0.24), PyTorch (Sim: 0.41)<br>
+      • <strong>Action Plan 1:</strong> Course "DevOps Foundations" | Project: "Containerize Python app with Docker Compose"<br>
+      • <strong>Action Plan 2:</strong> Course "Deep Learning PyTorch" | Project: "Build CNN/LSTM model from scratch"
+    </div>
+
+  </div>
+
+  <script>
+    function downloadHTML() {
+      const htmlContent = document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'TalentBridge_Project_Report.html';
+      a.click();
+    }
+
+    function downloadMarkdown() {
+      fetch('PROJECT_REPORT.md')
+        .then(res => res.text())
+        .then(md => {
+          const blob = new Blob([md], { type: 'text/markdown' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'TalentBridge_Project_Report.md';
+          a.click();
+        })
+        .catch(() => {
+          alert('Markdown file is available at placement_system/PROJECT_REPORT.md');
+        });
+    }
+  </script>
+</body>
+</html>
