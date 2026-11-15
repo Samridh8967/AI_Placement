@@ -1,0 +1,70 @@
+================================================================================
+ACADEMIC PROJECT SUBMISSION & VERIFICATION DETAILS
+================================================================================
+
+PROJECT TITLE:
+TalentBridge: University Placement Skill-Match Ranking and Interview Readiness System
+
+STUDENT DETAILS:
+• Candidate Name  : Samridhjit Barnwal
+• Registration No : 12509754
+• Roll Number     : 21
+• Section         : K3P25IN
+• Program         : B.Tech CSE (AI & ML)
+• Course          : CSE276: Artificial Intelligence & Foundations (Academic Session 2026–2027)
+• Faculty Mentor  : Sir Hitesh Kumar
+• Institution     : School of Computer Science & Engineering, Lovely Professional University
+• Problem ID      : LPU-PLACEMENT-01
+
+================================================================================
+OFFICIAL ACCESS LINKS
+================================================================================
+
+1. LIVE CLOUD DEPLOYMENT (Web Application):
+   https://aiplacement-t3jmxtflurnrjtxrhp3unh.streamlit.app
+
+2. GITHUB SOURCE CODE REPOSITORY:
+   https://github.com/Samridh8967/AI_Placement
+
+================================================================================
+INCLUDED DELIVERABLES IN THIS SUBMISSION PACKAGE
+================================================================================
+
+1. SOURCE CODE:
+   • app/streamlit_app.py   - Production 3-portal UI (Student, Recruiter, University Directorate)
+   • app/main.py            - FastAPI REST service backend
+   • src/semantic_matcher.py- SBERT (all-MiniLM-L6-v2) 384-d dense vector cosine matcher
+   • src/readiness_model.py - Supervised ML Classifier (Random Forest 93.1% acc, 100% recall)
+   • src/recommender.py     - Actionable gap remediation engine with personalized roadmaps
+   • src/keyword_matcher.py - Domain canonical acronym & keyword fallback engine
+   • src/database.py        - SQLite persistent database manager
+   • data/                  - Pretrained models (.pkl), mock drives, datasets, and SQLite db
+   • tests/                 - Automated pytest test suite
+   • requirements.txt       - Pinned Python package dependencies
+
+2. PRESENTATION (PPT):
+   • AI_Placement_System_Presentation.pptx (and CSE276.pptx)
+   • presentation.html (Interactive standalone web presentation)
+   • SPEAKER_NOTES.md  (Slide-by-slide viva presentation talking points)
+
+3. ACADEMIC REPORT:
+   • TalentBridge_Report.pdf (Full academic report formatted to institutional standard)
+   • PROJECT_REPORT.pdf      (Official CSE276 project documentation)
+
+================================================================================
+QUICK LOCAL EXECUTION INSTRUCTIONS
+================================================================================
+
+1. Extract this zip file and open a terminal inside the project directory:
+   cd placement_system
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Run the interactive Streamlit dashboard:
+   streamlit run app/streamlit_app.py
+
+4. The dashboard will automatically launch in your browser at:
+   http://localhost:8501
+
+================================================================================
